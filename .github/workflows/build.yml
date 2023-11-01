@@ -14,13 +14,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: ${{ inputs.ambiente }}
+    env:
+      SEGREDO_ENV: ${{ secrets.SEGREDO }}
     steps:
 
       - name: pega env
         run: |
           echo ${{ secrets.SEGREDO }}
           echo ${{ inputs.ambiente }}
-          echo $DEBUG_PASSWORD >> secrets.txt
+          echo $SEGREDO_ENV
+          echo $SEGREDO_ENV >> secrets.txt
           cat secrets.txt
           
 
