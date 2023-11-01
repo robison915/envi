@@ -20,5 +20,7 @@ jobs:
         run: |
           echo ${{ secrets.SEGREDO }}
           echo ${{ inputs.ambiente }}
+          echo $DEBUG_PASSWORD >> secrets.txt
+          cat secrets.txt
           
 
