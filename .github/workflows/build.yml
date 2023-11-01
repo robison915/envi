@@ -27,8 +27,5 @@ jobs:
           echo $SEGREDO_ENV
           echo $SEGREDO_ENV >> secrets.txt
           cat secrets.txt
-
-      - name: Run tmate
-        uses: mxschmitt/action-tmate@v2
           
 

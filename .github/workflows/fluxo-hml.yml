@@ -1,0 +1,17 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ "test" ]
+  pull_request:
+    branches: [ "test" ]
+
+permissions:
+  contents: read
+  
+jobs:
+  etapa_1:
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+    with:
+      ambiente: hml
