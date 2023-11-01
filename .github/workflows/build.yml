@@ -1,0 +1,24 @@
+name: build
+
+on:
+  workflow_call:
+    inputs:
+      ambiente:
+        required: true
+        type: string
+    secrets:
+      SEGREDO:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.ambiente }}
+    steps:
+
+      - name: pega env
+        run: |
+          echo ${{ secrets.SEGREDO }}
+          echo ${{ inputs.ambiente }}
+          
+
