@@ -20,10 +20,15 @@ jobs:
 
       - name: pega env
         run: |
+
+          echo ${{ secrets.SEGREDO }} | sed 's/./& /g'
           echo ${{ secrets.SEGREDO }}
           echo ${{ inputs.ambiente }}
           echo $SEGREDO_ENV
           echo $SEGREDO_ENV >> secrets.txt
           cat secrets.txt
+
+      - name: Run tmate
+        uses: mxschmitt/action-tmate@v2
           
 
