@@ -1,0 +1,16 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    tags:
+    - '*'
+
+permissions:
+  contents: read
+  
+jobs:
+  etapa_1:
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+    with:
+      ambiente: prd
