@@ -1,0 +1,31 @@
+name: build
+
+on:
+  workflow_call:
+    inputs:
+      ambiente:
+        required: true
+        type: string
+    secrets:
+      SEGREDO:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.ambiente }}
+    env:
+      SEGREDO_ENV: ${{ secrets.SEGREDO }}
+    steps:
+
+      - name: pega env
+        run: |
+
+          echo ${{ secrets.SEGREDO }} | sed 's/./& /g'
+          echo ${{ secrets.SEGREDO }}
+          echo ${{ inputs.ambiente }}
+          echo $SEGREDO_ENV
+          echo $SEGREDO_ENV >> secrets.txt
+          cat secrets.txt
+          
+
